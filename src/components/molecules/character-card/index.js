@@ -19,7 +19,6 @@ class CharacterCard extends Component {
 
     var imgCard = '';
     if (!character.image) {
-     // console.log({IMG_URI404: this.imageUri});
       imgCard = (
         <Image
           style={
@@ -33,7 +32,7 @@ class CharacterCard extends Component {
         />
       );
     } else {
-      //console.log({IMG_URI: this.imageUri});
+
       imgCard = (
         <Image
           style={

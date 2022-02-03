@@ -13,12 +13,9 @@ export const getCharacters = async () => {
 };
 
 export const getHousesCharacters = async nameHouse => {
-  
-  console.log({NAMEHOUSE: nameHouse});
-
   const url = `/characters/house/${nameHouse}`;
   const {data: resData} = await aInstance.get(url);
 
-  console.log({HOUSES_CHARACTERS: resData});
+  console.log({REDDATA: resData, NAME: nameHouse});
   return resData;
 };

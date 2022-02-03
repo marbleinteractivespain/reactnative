@@ -1,21 +1,20 @@
 import React, {Component} from 'react';
-import {SafeAreaView, Image, TouchableOpacity, View, Text} from 'react-native';
-import {Actions} from 'react-native-router-flux';
+import {Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
 
 class CardShield extends Component {
   constructor(props) {
     super(props);
   }
+
+  onCharacterPress = housename => {
+    this.props.onPress(housename);
+  };
+
   render() {
     const {housename, img} = this.props;
 
     var icon = '';
-    const onCharacterPress = house =>
-      Actions.push('Houses', {
-        title: house || '',
-        house: house,
-      });
 
     switch (img) {
       case 'G':
@@ -40,7 +39,7 @@ class CardShield extends Component {
     return (
       <TouchableOpacity
         style={styles.btnImg}
-        onPress={house => onCharacterPress(housename)}>
+        onPress={() => this.onCharacterPress(housename)}>
         <Image source={iconImg} style={styles.img} />
       </TouchableOpacity>
     );
