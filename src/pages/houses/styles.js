@@ -10,12 +10,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
   },
-  img: {
-    width: '100%',
-    height: undefined,
-    aspectRatio: 1,
-    resizeMode: 'contain',
-  },
   logo: {
     width: '100%',
     height: 100,
@@ -24,8 +18,31 @@ const styles = StyleSheet.create({
   btnImg: {
     width: '50%',
     height: '100%',
-    padding: 10,
     justifyContent: 'center',
+  },
+  backgroundImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    opacity: 0.4,
+  },
+  title: {
+    color: 'white',
+    fontSize: 26,
+    textAlign: 'center',
+    marginTop: 10,
+    fontFamily: 'copperplate',
+    letterSpacing: 6,
+  },
+  subtitle: {
+    color: 'white',
+    fontSize: 22,
+    marginTop: 20,
+    textAlign: 'center',
+    fontFamily: 'copperplate',
+    letterSpacing: 3,
   },
 });
 

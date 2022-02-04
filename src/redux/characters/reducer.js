@@ -1,15 +1,16 @@
 import * as types from './types';
 
 const initialState = {
-  house: '',
+  item: null,
 };
 
 const reducer = (state = initialState, action = {}) => {
+  console.log(state, action);
   switch (action.type) {
-    case types.HOUSE_CHARACTERS_UPDATE_NAME_HOUSE:
+    case types.HOUSE_CHARACTERS_UPDATE_ITEM:
       return {
         ...state,
-        house: action.payload,
+        item: action.payload,
       };
     default:
       return state;

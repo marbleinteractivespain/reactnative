@@ -27,11 +27,6 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         item: action.payload,
       };
-    case types.HOUSE_CHARACTERS_GET_HOUSE:
-      return {
-        ...state,
-        house: action.payload,
-      };
     default:
       return state;
   }

@@ -1,26 +1,17 @@
-import React, {Component} from 'react';
-import {View, Text, Image} from 'react-native';
-import styles from './styles';
+import {connect} from 'react-redux';
+import Component from './view';
+import * as characterActions from '../../redux/characters/action';
 
-class Characters extends Component {
-  render() {
-    const {character} = this.props;
-    return (
-      <View style={styles.container}>
-         <Image
-          style={
-            (styles.img,
-            {
-              width: '100%',
-              height: 200,
-            })
-          }
-          source={{uri: character.image}}
-        />
-        <Text style={styles.title}>{character.name} </Text>
-      </View>
-    );
-  }
-}
+const mapStateToProps = state => {
+  return {
+    item: state.houseCharacters.item,
+  };
+};
 
-export default Characters;
+const mapDispacthToProps = dispatch => {
+  return {
+    setItem: item => dispatch(characterActions.setItem(item)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispacthToProps)(Component);

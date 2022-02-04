@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, TouchableOpacity} from 'react-native';
+import {Text, Image, TouchableOpacity} from 'react-native';
 import styles from './styles';
 
 class CardShield extends Component {
@@ -41,6 +41,7 @@ class CardShield extends Component {
         style={styles.btnImg}
         onPress={() => this.onCharacterPress(housename)}>
         <Image source={iconImg} style={styles.img} />
+        <Text style={styles.boton}>VER PERSONAJES</Text>
       </TouchableOpacity>
     );
   }

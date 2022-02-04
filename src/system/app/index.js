@@ -4,6 +4,7 @@ import Home from '../../pages/home';
 import Characters from '../../pages/characters';
 import Houses from '../../pages/houses-characters';
 import House from '../../pages/houses';
+import Form from '../../pages/form/view';
 import colors from '../../assets/colors';
 import {Provider} from 'react-redux';
 import store from '../../config/redux';
@@ -19,7 +20,8 @@ class App extends Component {
             <Scene key="Home" component={Home} />
             <Scene key="Characters" component={Characters} back />
             <Scene key="Houses" component={Houses} back />
-            <Scene key="House" component={House} initial hideNavBar />
+            <Scene key="House" component={House}  hideNavBar />
+            <Scene key="Form" component={Form} initial hideNavBar />
           </Stack>
         </Router>
       </Provider>

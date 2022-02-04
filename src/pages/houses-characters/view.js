@@ -16,11 +16,12 @@ class Houses extends Component {
   }
 
   renderItem = ({item}) => {
-    const onCharacterPress = character =>
+    const onCharacterPress = character => {
+      this.props.setItem(item);
       Actions.push('Characters', {
         title: character?.name || '',
       });
-
+    };
     return (
       <CharacterCard character={item} onCharacterPress={onCharacterPress} />
     );

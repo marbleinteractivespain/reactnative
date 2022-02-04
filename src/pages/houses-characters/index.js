@@ -3,6 +3,7 @@ import Component from './view';
 import * as houseCharactersActions from '../../redux/house-characters/actions';
 
 const mapStateToProps = state => {
+  console.log({STATE: state});
   return {
     loading: state.houseCharacters.loading,
     list: state.houseCharacters.list,
@@ -12,6 +13,8 @@ const mapStateToProps = state => {
 const mapDispacthToProps = dispatch => {
   return {
     getList: () => dispatch(houseCharactersActions.getList()),
+    setItem: item => dispatch(houseCharactersActions.setItem(item)),
+
   };
 };
 

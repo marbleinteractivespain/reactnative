@@ -32,9 +32,9 @@ export const getList = () => {
       dispatch(setLoading(true));
       const house = getState().houseName.house;
       const getHousesCharactersRes = await api.getHousesCharacters(house);
-      console.log({GETSTATE: getState().houseName.house});
+      //console.log({GETSTATE: getState().houseName.house});
       const housesCharactersData = getHousesCharactersRes || [];
-      console.log({DATOS: housesCharactersData});
+      //console.log({DATOS: housesCharactersData});
       dispatch(setList(housesCharactersData));
     } catch (error) {
       console.error(error);
@@ -46,10 +46,3 @@ export const getList = () => {
   return asyncFuncAction;
 };
 
-export const getHouse = item => {
-  const action = {
-    type: types.HOUSE_CHARACTERS_GET_HOUSE,
-    payload: item,
-  };
-  return action;
-};

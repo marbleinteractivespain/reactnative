@@ -10,7 +10,6 @@ const mapStateToProps = state => {
 
 const mapDispacthToProps = dispatch => {
   return {
-    // getList: () => dispatch(houseCharactersActions.getList()),
     setHouseName: house => dispatch(houseNameActions.setHouseName(house)),
   };
 };
