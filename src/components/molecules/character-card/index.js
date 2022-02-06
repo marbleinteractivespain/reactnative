@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, Image, Text, Dimensions} from 'react-native';
+import {TouchableOpacity, Image, Text, Dimensions, View} from 'react-native';
 import styles from './styles';
+import LineColorNameHouse from '../LineColorNameHouse';
 
 class CharacterCard extends Component {
   constructor(props) {
@@ -13,37 +14,43 @@ class CharacterCard extends Component {
   componentDidMount() {}
 
   render() {
-    //SE PUEDE PASAR ESTO AL CONTRUCTOR Y ASI SOLO TENERLO EN UN LADO Y NO TENER QUE ACCDER EN EL CONSTRCUCTOR A this.props.character.image????
     const {character, onCharacterPress} = this.props;
     const {imageWidth} = this.state;
 
     var imgCard = '';
     if (!character.image) {
       imgCard = (
-        <Image
-          style={
-            (styles.img,
-            {
-              width: imageWidth,
-              height: 300,
-            })
-          }
-          source={require('../../../assets/images/404.jpg')}
-        />
+        <View>
+          <Image
+            style={
+              (styles.img,
+              {
+                width: imageWidth,
+                height: 300,
+              })
+            }
+            source={require('../../../assets/images/404.jpg')}
+          />
+          <LineColorNameHouse housename={character.house} />
+        </View>
       );
     } else {
-
       imgCard = (
-        <Image
-          style={
-            (styles.img,
-            {
-              width: imageWidth,
-              height: 300,
-            })
-          }
-          source={{uri: character.image}}
-        />
+        <View>
+          <Image
+            style={
+              (styles.img,
+              {
+                width: imageWidth,
+                height: 300,
+              })
+            }
+            source={{uri: character.image}}
+          />
+          <View style={styles.containerName}>
+            <LineColorNameHouse housename={character.house} />
+          </View>
+        </View>
       );
     }
 
@@ -52,6 +59,7 @@ class CharacterCard extends Component {
         style={styles.item}
         onPress={() => onCharacterPress(character)}>
         {imgCard}
+
         <Text style={styles.name}>{character.name}</Text>
       </TouchableOpacity>
     );

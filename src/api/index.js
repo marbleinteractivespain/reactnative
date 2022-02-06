@@ -16,6 +16,5 @@ export const getHousesCharacters = async nameHouse => {
   const url = `/characters/house/${nameHouse}`;
   const {data: resData} = await aInstance.get(url);
 
-  //console.log({REDDATA: resData, NAME: nameHouse});
   return resData;
 };

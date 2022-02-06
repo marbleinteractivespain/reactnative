@@ -32,9 +32,7 @@ export const getList = () => {
       dispatch(setLoading(true));
       const house = getState().houseName.house;
       const getHousesCharactersRes = await api.getHousesCharacters(house);
-      //console.log({GETSTATE: getState().houseName.house});
       const housesCharactersData = getHousesCharactersRes || [];
-      //console.log({DATOS: housesCharactersData});
       dispatch(setList(housesCharactersData));
     } catch (error) {
       console.error(error);

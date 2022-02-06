@@ -3,7 +3,6 @@ import Component from './view';
 import * as houseCharactersActions from '../../redux/house-characters/actions';
 
 const mapStateToProps = state => {
-  console.log({STATE: state});
   return {
     loading: state.houseCharacters.loading,
     list: state.houseCharacters.list,

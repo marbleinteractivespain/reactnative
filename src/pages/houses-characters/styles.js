@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   title: {
     color: 'white',
     fontSize: 24,
+    fontFamily:'copperplate',
   },
   item: {
     flex: 1,
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
     margin: 15,
+    fontFamily:'copperplate',
   },
 });
 

@@ -4,7 +4,6 @@ import {
   SafeAreaView,
   StatusBar,
   RefreshControl,
-  Text,
 } from 'react-native';
 import styles from './styles';
 import {Actions} from 'react-native-router-flux';
@@ -28,12 +27,11 @@ class Houses extends Component {
   };
 
   render() {
-    const {list, loading, house} = this.props;
+    const {list, loading} = this.props;
     return (
       <>
         <StatusBar barStyle="light-content" />
         <SafeAreaView style={styles.container}>
-          <Text style={styles.title}>{house}</Text>
           <FlatList
             data={list}
             numColumns={2}

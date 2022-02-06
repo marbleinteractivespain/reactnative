@@ -12,7 +12,7 @@ class CardShield extends Component {
   };
 
   render() {
-    const {housename, img} = this.props;
+    const {housename, img, color} = this.props;
 
     var icon = '';
 
@@ -41,7 +41,10 @@ class CardShield extends Component {
         style={styles.btnImg}
         onPress={() => this.onCharacterPress(housename)}>
         <Image source={iconImg} style={styles.img} />
-        <Text style={styles.boton}>VER PERSONAJES</Text>
+        <Text
+          style={[styles.boton, {backgroundColor: color, borderColor: color}]}>
+          VER PERSONAJES
+        </Text>
       </TouchableOpacity>
     );
   }

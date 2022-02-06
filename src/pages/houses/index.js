@@ -5,6 +5,7 @@ import * as houseNameActions from '../../redux/houses/actions';
 const mapStateToProps = state => {
   return {
     house: state.houseName.house,
+    username: state.userName.username,
   };
 };
 

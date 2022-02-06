@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 26,
     textAlign: 'center',
-    marginTop: 10,
+    marginVertical: 10,
     fontFamily: 'copperplate',
-    letterSpacing: 6,
+    letterSpacing: 4,
   },
   subtitle: {
     color: 'white',
@@ -43,6 +43,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'copperplate',
     letterSpacing: 3,
+  },
+  name: {
+    color: 'white',
+    fontSize: 22,
+    fontWeight:'bold',
+    marginVertical: 5,
+    textAlign: 'center',
+    fontFamily: 'copperplate',
+    letterSpacing: 3,
+    
   },
 });
 

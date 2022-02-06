@@ -1,13 +1,8 @@
-const main = '#272727';
+const main = '#171717';
 const navBar = '#171717';
 const white = 'white';
 const black = 'black';
 const error = 'red';
-const grey = 'grey';
-const red = 'red';
+const yellow = '#E7B700';
 
-// const customRGB = 'rgb(255,255,255)'
-// const customRGBA = 'rgba(255,255,255, 0.6)'
-// const navBar = '#17171760';
-
-export default {main, navBar, white, black, error, grey, red};
+export default {main, navBar, white, black, error, yellow};

@@ -1,38 +1,62 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Image, View, Text, TextInput, Button} from 'react-native';
+import {
+  SafeAreaView,
+  Image,
+  View,
+  Text,
+  TextInput,
+  Button,
+  Alert,
+  Pressable,
+} from 'react-native';
 import styles from './styles';
 import {Actions} from 'react-native-router-flux';
 import Modal from 'react-native-modal';
+import BackgroundImange from '../../components/molecules/backgroundImage';
+import Logo from '../../components/molecules/logo';
 
-const Form = () => {
-  const image = {source: '../../assets/images/bg.jpg'};
+const Form = props => {
   const [filledName, setFilledName] = useState('');
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
-  const onPressEnter = filledName => {
-    console.log(filledName);
-    //this.props.setName(house);
-    // Actions.push('House', {
-    //   title: '',
-    // });
-    /*
-    - CREAR EL MODAL CON PROPIEDAD DEL  ESTADO
-    - SETEAR EL ESTADO DEL MODAL 
-    - CERRAR MODAL
-    - CREAR REDUX PARA PASAR EL NOMBRE
-    */ 
-    return null;
+  //console.log(props);
+
+  const onPressEnter = () => {
+    if (filledName === '') {
+      setModalVisible(true);
+    } else {
+      setModalVisible(false);
+      props.setUserName(filledName);
+      Actions.push('House');
+    }
   };
   return (
     <SafeAreaView style={styles.container}>
-      <Image
-        source={require('../../assets/images/bg.jpg')}
-        style={styles.backgroundImage}
-      />
-      <Image
-        source={require('../../assets/images/harry-potter-logo.png')}
-        style={styles.logo}
-      />
+      <Modal animationType="slide" transparent={true} visible={modalVisible}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            {filledName === '' ? (
+              <Text style={styles.modalText}>
+                Por favor, rellena tu nombre.
+              </Text>
+            ) : (
+              <Text style={styles.modalText}>¡Hola! {filledName}</Text>
+            )}
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}>
+              <Text style={styles.textStyle}>
+                {filledName === '' ? 'Cerrar' : 'Entrar'}
+              </Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
+
+      <BackgroundImange />
+
+      <Logo />
+
       <View style={styles.header}>
         <Text style={styles.title}>
           NO EXISTE NI EL BIEN NI EL MAL, SOLO EXISTE EL PODER Y PERSONAS
@@ -46,8 +70,19 @@ const Form = () => {
           value={filledName}
           onChangeText={text => setFilledName(text)}
         />
-        <Button title="Entrar" onPress={() => onPressEnter(filledName)} />
+        {
+          <Pressable
+            style={[styles.button, styles.buttonOpen]}
+            onPress={onPressEnter}>
+            <Text style={styles.textStyle}>ENTRAR</Text>
+          </Pressable>
+        }
       </View>
+
+      <Image
+        source={require('../../assets/images/hp-3.png')}
+        style={styles.hp3}
+      />
     </SafeAreaView>
   );
 };
